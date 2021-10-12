@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Carrito de compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="row">
+    <nav class="navbar navbar-default">
+      <span class="navbar-brand">Bienvenidos a PC Rhapsody</span>
+    </nav>
+  </div>
+<div class="container" id="container-items">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <form>
+        <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit" style="margin-top:0px;">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Filtro -->
+      <form class="shop__filter">
+        <!-- Precio -->
+        <h3 class="headline">
+          <span>Precio</span>
+        </h3>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
+          <label for="shop-filter-price_1">Bajo $5000</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
+          <label for="shop-filter-price_2">Entre $5000 y $10000</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__price" id="shop-filter-price_4" value="specify">
+          <label for="shop-filter-price_4">Otro</label>
+        </div>
+
+        <!-- Marcas -->
+        <h3 class="headline">
+          <span>Marcas</span>
+        </h3>
+        <div class="checkbox">
+          <input type="checkbox" value="" id="shop-filter-checkbox_1" checked="">
+          <label for="shop-filter-checkbox_1">Intel</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" value="" id="shop-filter-checkbox_2">
+          <label for="shop-filter-checkbox_2">Huawei</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" value="" id="shop-filter-checkbox_3">
+          <label for="shop-filter-checkbox_3">Asus</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" value="" id="shop-filter-checkbox_4">
+          <label for="shop-filter-checkbox_4">Spektra</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" value="" id="shop-filter-checkbox_5">
+          <label for="shop-filter-checkbox_5">Seagate</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" value="" id="shop-filter-checkbox_6">
+          <label for="shop-filter-checkbox_6">Kingston</label>
+        </div>        
+
+        <!-- Categorías -->
+        <h3 class="headline">
+          <span>Categorías</span>
+        </h3>
+        <div class="radio">
+          <input type="radio" name="shop-filter__radio" id="shop-filter-radio_1" value="" checked="">
+          <label for="shop-filter-radio_1">Procesadores</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__radio" id="shop-filter-radio_2" value="">
+          <label for="shop-filter-radio_2">Memorias</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__radio" id="shop-filter-radio_3" value="">
+          <label for="shop-filter-radio_3">Discos Duros</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__radio" id="shop-filter-radio_4" value="">
+          <label for="shop-filter-radio_4">Gabinetes</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__radio" id="shop-filter-radio_5" value="">
+          <label for="shop-filter-radio_5">Notebooks</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="shop-filter__radio" id="shop-filter-radio_6" value="">
+          <label for="shop-filter-radio_6">Tarjetas Gráficas</label>
+        </div>        
+      </form>
+    </div>
+    
+    <div class="col-sm-8 col-md-9">
+      <!-- Filtros Thumbnail -->
+      <ul class="shop__sorting">
+        <li class="active"><a href="#">Popular</a></li>
+        <li><a href="#">Nuevos</a></li>
+        <li><a href="#">Hot sale</a></li>
+        <li><a href="#">Precio (Ascendente)</a></li>
+        <li><a href="#">Precio (Descendente)</a></li>
+        <li><a href="#" id="cart" onclick="checkoutCart()"></a></li>
+      </ul>
+
+      <!-- Listado de Productos -->
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="assets/cpu-intel-corei5.jpg" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">Intel</h5>
+              <h5 class="shop-thumb__title">
+                CPU Core i5-11400F
+              </h5>
+              <div class="shop-thumb__price">
+                <span class="shop-thumb__price">$189.990</span>
+              </div>
+            </a>
+            <div style="margin-top: 8px;">
+              <button onclick="detalleCompra.push(new Detalle('1','CPU Core i5-11400F','189990'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="assets/ram-kingston-PC.jpg" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">Kingston</h5>
+              <h5 class="shop-thumb__title">
+                DDR4 4GB 2666Mhz
+              </h5>
+              <div class="shop-thumb__price">$25.990</div>
+            </a>
+            <div style="margin-top: 8px;">
+              <button onclick="detalleCompra.push(new Detalle('1','DDR4 4GB 2666Mhz','25990'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+            </div>            
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="assets/hdd-seagate-2TB.jpg" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">Seagate</h5>
+              <h5 class="shop-thumb__title">
+                Disco Duro PC 2TB Barracuda
+              </h5>
+              <div class="shop-thumb__price">$53.990</div>
+            </a>
+            <div style="margin-top: 8px;">
+              <button onclick="detalleCompra.push(new Detalle('1','Disco Duro PC 2TB Barracuda','53990'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+            </div>            
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="assets/gabinete-spektra.jpg" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">Spektra</h5>
+              <h5 class="shop-thumb__title">
+                Gabinete mATX 200W Poison 6505
+              </h5>
+              <div class="shop-thumb__price">$28.990</div>
+            </a>
+            <div style="margin-top: 8px;">
+              <button onclick="detalleCompra.push(new Detalle('1','Gabinete mATX 200W Poison 6505','28990'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+            </div>            
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="assets/notebook-huawei-matebook.jpg" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">Huawei</h5>
+              <h5 class="shop-thumb__title">
+                Matebook Xpro 13.9" Intel i5-1135
+              </h5>
+              <div class="shop-thumb__price">$999.990</div>
+            </a>
+            <div style="margin-top: 8px;">
+              <button onclick="detalleCompra.push(new Detalle('1','Matebook Xpro 13.9 inches Intel i5-1135','999990'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+            </div>            
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-4">
+          <div class="shop__thumb">
+            <a href="#">
+              <div class="shop-thumb__img">
+                <img src="assets/asus-nvidia-geforce.jpg" class="img-responsive" alt="...">
+              </div>
+              <h5 class="shop-thumb__title">Asus</h5>
+              <h5 class="shop-thumb__title">
+                Video NVIDIA GeForce GT710 SL-2GD5-CSM
+              </h5>
+              <div class="shop-thumb__price">$69.990</div>
+            </a>
+            <div style="margin-top: 8px;">
+              <button onclick="detalleCompra.push(new Detalle('1','Video NVIDIA GeForce GT710 SL-2GD5-CSM','69990'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+            </div>            
+          </div>
+        </div>    
+      </div>
+
+      <!-- Paginación -->
+      <div class="row">
+        <div class="col-sm-12">
+
+          <ul class="pagination pull-right">
+            <li class="disabled"><a href="#">«</a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">»</a></li>
+          </ul>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- Checkout -->
+  <!-- Carrito Compras -->
+<div class="checkout_container" id="checkout-items" style="display: none;">
+  <div class="checkout_detalle">
+    <div>
+      <h3><b>Carrito de compra</b></h3>
+      <div class="checkout_item_detalle ">
+        <div class="main checkout_item_detalle_line">
+          <p><b>Descripcion</b></p>
+          <p id="descripcion"></p>
+        </div>
+        <div class="main checkout_item_detalle_line">
+          <p><b>Cantidad</b></p>
+          <p id="cantidad"></p>
+        </div>
+        <div class="main checkout_item_detalle_line">
+          <p><b>Precio</b></p>
+          <p id="precio"></p>
+        </div>
+      </div>
+      <div class="checkout_volver">
+        <a href="#" onclick="showCart()"><i class="fa fa-arrow-left"></i> Volver a la tienda</a>
+        
+      </div>
+    </div>
+    <!-- Resumen -->
+    <div class="checkout_resumen">
+      <h3>Resumen del pedido</h3>
+      <div class="checkout_resumen_detalle">
+        <div class="col-2 checkout_resumen_detalle_line">
+          <p>Cantidad de productos</p>
+        </div>
+        <div class="col-2 checkout_resumen_detalle_line">
+          <p id="cantidad-items">$Qty</p>
+        </div>
+        <div class="col-2">
+          <p>Subtotal</p>
+        </div>
+        <div class="col-2">
+          <p id="subtotal">$SubPrice</p>
+        </div>
+        <div class="col-2">
+          <p>IVA</p>
+        </div>
+        <div class="col-2">
+          <p id="iva">$IVA</p>
+        </div>
+        <div class="col-2 checkout_resumen_detalle_line">
+          <p>PRECIO TOTAL</p>
+        </div>
+        <div class="col-2 checkout_resumen_detalle_line">
+          <p id="precioTotal">$PRECIO_TOTAL</p>
+        </div>        
+      </div>
+      <div class="col-md-12 text-center">
+      <button class="btn">PAGAR</button>      
+      </div>
+    </div> 
+    
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+<script src="cart.js"></script>
+</body>
+</html>
