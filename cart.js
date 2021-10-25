@@ -33,13 +33,25 @@ function UpdateCart(){
 }
 
 var Detalle = class {
-    constructor(cantidad, item, precio){
+    constructor(id,cantidad, item, precio){
     var suma = 0;
+        this.id = id;
         this.cantidad = cantidad;
         this.item = item;
         this.precio = precio;
         UpdateCart();
     }
+}
+
+function deleteItem(value){
+    for( var i = 0; i < detalleCompra.length; i++){ 
+        if ( detalleCompra[i].id === value) { 
+            detalleCompra.splice(i, 1);
+            i = detalleCompra.length;
+        }
+    }
+    sessionStorage.setItem('qtyCart', detalleCompra.length);
+    checkoutCart();
 }
 
 function calculoIva(x){
@@ -56,7 +68,6 @@ function totalCompra(sumaProductos,iva){
 // Checkout Cart
 
 function checkout(){
-    // var delButton = document.getElementById("delButton");
     document.getElementById("descripcion").innerHTML = `<p id="descripcion"></p>`
     document.getElementById("cantidad").innerHTML = `<p id="cantidad"></p>`
     document.getElementById("precio").innerHTML = `<p id="precio"></p>`
@@ -66,12 +77,7 @@ function checkout(){
         suma(parseInt(producto.precio));
         document.getElementById("descripcion").innerHTML += `<p id="descripcion">${producto.item}</p>`
         document.getElementById("cantidad").innerHTML += `<p id="cantidad">${producto.cantidad}</p>`
-        // document.getElementById("precio").innerHTML += `<p id="precio">${producto.precio}</p><button id="delButton">Eliminar</button>`
-        document.getElementById("precio").innerHTML += `<table><tr><td>${producto.precio}</td><td><button id="delButton">Eliminar</button></td></tr></table>`
-        // document.getElementById("delButton").innerHTML += `<button id="delButton">Eliminar</button>`
-        // document.body.appendChild(btn);
-        // delButton.appendChild(btn);
-        console.log(btn);
+        document.getElementById("precio").innerHTML += `<table><tr><td>${producto.precio}</td><td><button id="${producto.id}" onclick="deleteItem(${producto.id})">Eliminar</button></td></tr></table>`
     }
     sessionStorage.setItem('precioBruto', precioBruto);
     sessionStorage.setItem('iva',Math.ceil(calculoIva(sessionStorage.getItem('precioBruto'))));
