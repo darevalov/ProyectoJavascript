@@ -664,7 +664,7 @@ body {
   border: 1em;
   border-color: black;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr;
   align-items: baseline;
 }
 
@@ -721,8 +721,10 @@ body {
   color: white;
   width: 80%;
   font-size: 0.7rem;
-  /* padding: 1vh; */
   margin-top: 5rem;
   border-radius: 0;
-  /* margin: auto; */
+}
+
+table {
+  margin-bottom: 1rem;
 }

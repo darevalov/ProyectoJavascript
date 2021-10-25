@@ -56,18 +56,27 @@ function totalCompra(sumaProductos,iva){
 // Checkout Cart
 
 function checkout(){
+    // var delButton = document.getElementById("delButton");
     document.getElementById("descripcion").innerHTML = `<p id="descripcion"></p>`
     document.getElementById("cantidad").innerHTML = `<p id="cantidad"></p>`
     document.getElementById("precio").innerHTML = `<p id="precio"></p>`
     for (const producto of detalleCompra){
+        var btn = document.createElement("button");
+        btn.innerHTML = "Eliminar";
         suma(parseInt(producto.precio));
         document.getElementById("descripcion").innerHTML += `<p id="descripcion">${producto.item}</p>`
         document.getElementById("cantidad").innerHTML += `<p id="cantidad">${producto.cantidad}</p>`
-        document.getElementById("precio").innerHTML += `<p id="precio">${producto.precio}</p>`
+        // document.getElementById("precio").innerHTML += `<p id="precio">${producto.precio}</p><button id="delButton">Eliminar</button>`
+        document.getElementById("precio").innerHTML += `<table><tr><td>Uno</td><td>Dos</td></tr></table>`
+        // document.getElementById("delButton").innerHTML += `<button id="delButton">Eliminar</button>`
+        // document.body.appendChild(btn);
+        // delButton.appendChild(btn);
+        console.log(btn);
     }
     sessionStorage.setItem('precioBruto', precioBruto);
     sessionStorage.setItem('iva',Math.ceil(calculoIva(sessionStorage.getItem('precioBruto'))));
     sessionStorage.setItem('precioTotal',Math.ceil(totalCompra(precioBruto,calculoIva((sessionStorage.getItem('precioBruto'))))));
+    sessionStorage.setItem("currentCart", JSON.stringify(detalleCompra));
 
 }
 
@@ -91,3 +100,7 @@ function checkoutCart(){
     document.getElementById("iva").innerHTML = `<p id="iva">$${sessionStorage.getItem('iva')}</p>`;
     document.getElementById("precioTotal").innerHTML = `<p id="precioTotal">$${sessionStorage.getItem('precioTotal')}</p>`;
 }
+
+$.getJSON("productos.json", function(json) {
+    console.log(json)
+});
