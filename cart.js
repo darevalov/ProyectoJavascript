@@ -67,7 +67,7 @@ function checkout(){
         document.getElementById("descripcion").innerHTML += `<p id="descripcion">${producto.item}</p>`
         document.getElementById("cantidad").innerHTML += `<p id="cantidad">${producto.cantidad}</p>`
         // document.getElementById("precio").innerHTML += `<p id="precio">${producto.precio}</p><button id="delButton">Eliminar</button>`
-        document.getElementById("precio").innerHTML += `<table><tr><td>Uno</td><td>Dos</td></tr></table>`
+        document.getElementById("precio").innerHTML += `<table><tr><td>${producto.precio}</td><td><button id="delButton">Eliminar</button></td></tr></table>`
         // document.getElementById("delButton").innerHTML += `<button id="delButton">Eliminar</button>`
         // document.body.appendChild(btn);
         // delButton.appendChild(btn);
