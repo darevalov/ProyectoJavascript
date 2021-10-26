@@ -1,69 +1,122 @@
-{
-    "items": [
-      {
-        "sys": { "id": "1" },
-        "fields": {
-          "title": "queen panel bed",
-          "price": 10.99,
-          "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "2" },
-        "fields": {
-          "title": "king panel bed",
-          "price": 12.99,
-          "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "3" },
-        "fields": {
-          "title": "single panel bed",
-          "price": 12.99,
-          "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "4" },
-        "fields": {
-          "title": "twin panel bed",
-          "price": 22.99,
-          "image": { "fields": { "file": { "url": "./images/product-4.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "5" },
-        "fields": {
-          "title": "fridge",
-          "price": 88.99,
-          "image": { "fields": { "file": { "url": "./images/product-5.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "6" },
-        "fields": {
-          "title": "dresser",
-          "price": 32.99,
-          "image": { "fields": { "file": { "url": "./images/product-6.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "7" },
-        "fields": {
-          "title": "couch",
-          "price": 45.99,
-          "image": { "fields": { "file": { "url": "./images/product-7.jpeg" } } }
-        }
-      },
-      {
-        "sys": { "id": "8" },
-        "fields": {
-          "title": "table",
-          "price": 33.99,
-          "image": { "fields": { "file": { "url": "./images/product-8.jpeg" } } }
-        }
-      }
-    ]
-  }
-  
+[
+  {
+      "id": 1,    
+      "marca" : "Intel",
+      "modelo" : "CPU Core i5-11400F",
+      "precio" : "189990",
+      "categoria": "CPU",
+      "image" : "assets/cpu-intel-corei5.jpg"
+  },
+  {
+    "id": 2,    
+    "marca" : "Kingston",
+    "modelo" : "DDR4 4GB 2666Mhz",
+    "precio" : "25990",
+    "categoria": "memorias",
+    "image" : "assets/ram-kingston-PC.jpg"
+  },
+  {
+    "id": 3,    
+    "marca" : "Seagate",
+    "modelo" : "Disco Duro PC 2TB Barracuda",
+    "precio" : "53990",
+    "categoria": "discos",
+    "image" : "assets/hdd-seagate-2TB.jpg"
+  },
+  {
+    "id": 4,    
+    "marca" : "Spektra",
+    "modelo" : "Gabinete mATX 200W Poison 6505",
+    "precio" : "28990",
+    "categoria": "gabinetes",
+    "image" : "assets/gabinete-spektra.jpg"
+  },
+  {
+    "id": 5,    
+    "marca" : "Huawei",
+    "modelo" : "Matebook Xpro 13.9 CPU Intel i5-1135",
+    "precio" : "999990",
+    "categoria": "notebook",
+    "image" : "assets/notebook-huawei-matebook.jpg"
+  },
+  {
+    "id": 6,    
+    "marca" : "Asus",
+    "modelo" : "Video NVIDIA GeForce GT710 SL-2GD5-CSM",
+    "precio" : "69990",
+    "categoria": "tarjetas_graficas",
+    "image" : "assets/asus-nvidia-geforce.jpg"
+  },
+  {
+    "id": 7,    
+    "marca" : "Apple",
+    "modelo" : "MacBook Air 13 Procesador Apple M1 8 Cores 8GB 256 SSD",
+    "precio" : "869990",
+    "categoria": "notebook",
+    "image" : "assets/macbook.jpg"
+  },
+  {
+    "id": 8,    
+    "marca" : "Apple",
+    "modelo" : "Apple AirTag (Paquete de 4 Tags)",
+    "precio" : "89990",
+    "categoria": "wearables",
+    "image" : "assets/airtag.jpg"
+  },
+  {
+    "id": 9,    
+    "marca" : "iRobot",
+    "modelo" : "Aspiradora Robot Roomba i7+ (Alexa y Google Assistant)",
+    "precio" : "678990",
+    "categoria": "domotica",
+    "image" : "assets/irobot.jpg"
+  },
+  {
+    "id": 10,    
+    "marca" : "Toshiba",
+    "modelo" : "Disco Duro PC 1TB P300 7200 RPM",
+    "precio" : "37790",
+    "categoria": "discos",
+    "image" : "assets/hdd-toshiba-1TB.jpg"
+  },
+  {
+    "id": 11,    
+    "marca" : "Samsung",
+    "modelo" : "Smartphone Galaxy Z Flip3 5G 128GB/8GB",
+    "precio" : "969990",
+    "categoria": "smartphone",
+    "image" : "assets/samsung-zflip.jpg"
+  },
+  {
+    "id": 12,    
+    "marca" : "Gear",
+    "modelo" : "Silla Gamer I-Tam V2 Black/Blue (RGB)",
+    "precio" : "169990",
+    "categoria": "gamer",
+    "image" : "assets/silla-gear.jpg"
+  },
+  {
+    "id": 13,    
+    "marca" : "Gigabyte",
+    "modelo" : "Video NVIDIA RTX3080 10GB Eagle Gaming",
+    "precio" : "1449990",
+    "categoria": "tarjetas_graficas",
+    "image" : "assets/gigabyte-nvidia.jpg"
+  },
+  {
+    "id": 14,    
+    "marca" : "Intel",
+    "modelo" : "CPU Core i3-9100 3.6GHz 6MB (1151-v2)",
+    "precio" : "139990",
+    "categoria": "CPU",
+    "image" : "assets/cpu-intel-corei3.jpg"
+  },
+  {
+    "id": 15,    
+    "marca" : "Logitech",
+    "modelo" : "Mouse MX ANYWHERE 3 Wireless",
+    "precio" : "56990",
+    "categoria": "mouse",
+    "image" : "assets/logitech-mouse.jpg"
+  }            
+]

@@ -664,7 +664,7 @@ body {
   border: 1em;
   border-color: black;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   align-items: baseline;
 }
 
