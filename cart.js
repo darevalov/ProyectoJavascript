@@ -1,11 +1,52 @@
+// Variables y Constantes
 const detalleCompra = [];
 precioBruto = 0;
 const suma = x => precioBruto = precioBruto + x;
+const productList = document.querySelector('.product-list');
+
+eventListeners();
+
+function eventListeners(){
+    window.addEventListener('DOMContentLoaded', () => {
+        loadJSON();
+    });
+}
+
+function loadJSON(){
+    fetch('productos.json')
+    .then(response => response.json())
+    .then(data =>{
+        let html = '';
+        data.forEach(product => {
+            html += `
+            <div class="col-sm-6 col-md-4">
+              <div class="shop__thumb">
+                <a href="#">
+                  <div class="shop-thumb__img">
+                    <img src="${product.image}" class="img-responsive" alt="...">
+                  </div>
+                  <h5 class="shop-thumb__title">${product.marca}</h5>
+                  <h5 class="shop-thumb__title">
+                    ${product.modelo}
+                  </h5>
+                  <div class="shop-thumb__price">
+                    <span class="shop-thumb__price">${product.precio}</span></span>
+                  </div>
+                </a>
+                <div style="margin-top: 8px;">
+                  <button onclick="detalleCompra.push(new Detalle(${product.id},'1','${product.modelo}','${product.precio}'))">Añadir <i class="fa fa-shopping-cart"></i></button>
+                </div>
+              </div>
+            </div>
+            `;
+        });
+        productList.innerHTML = html;
+    })
+}
 
 function productos(value){
     suma(value);
 }
-
 
 function showCart(){
     var displayCheckout = document.getElementById("checkout-items");
@@ -107,6 +148,8 @@ function checkoutCart(){
     document.getElementById("precioTotal").innerHTML = `<p id="precioTotal">$${sessionStorage.getItem('precioTotal')}</p>`;
 }
 
-$.getJSON("productos.json", function(json) {
-    console.log(json)
-});
+
+// Load JSON
+// $.getJSON("productos.json", function(json) {
+//     console.log(json)
+// });
